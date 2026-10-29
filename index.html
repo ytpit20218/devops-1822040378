@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài Tập Cá Nhân - Nguyễn Minh Kiệt - 1822040378</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="badge">CI/CD Pipeline with GitHub Actions</div>
+            <h1 id="student-title">Nguyễn Minh Kiệt - 1822040378</h1>
+            <p class="subtitle">Triển khai Website tự động lên GitHub Pages</p>
+        </header>
+
+        <main class="content-card">
+            <section class="info-section">
+                <h2>Thông tin bài thực hành</h2>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <span class="label">Họ và tên:</span>
+                        <span class="value">Nguyễn Minh Kiệt</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Mã số sinh viên:</span>
+                        <span class="value">1822040378</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Môn học:</span>
+                        <span class="value">DevOps & Cloud Computing</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Trạng thái:</span>
+                        <span class="status-tag status-success">Phiên bản 1.0 - Sẵn sàng</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="pipeline-section">
+                <h2>Quy trình Pipeline CI/CD</h2>
+                <div class="workflow-steps">
+                    <div class="step-card">
+                        <div class="step-num">1</div>
+                        <h3>Code & Push</h3>
+                        <p>Viết mã nguồn (HTML, CSS, JS) và đẩy lên nhánh <code>main</code>.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-num">2</div>
+                        <h3>Job: Check</h3>
+                        <p>Kiểm tra tồn tại 3 file bắt buộc và thẻ <code>&lt;title&gt;</code>.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-num">3</div>
+                        <h3>Job: Deploy</h3>
+                        <p>Tự động build và đóng gói đưa lên GitHub Pages công khai.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="interactive-section">
+                <h2>Tương tác kiểm thử</h2>
+                <p>Bấm nút bên dưới để kiểm tra chức năng JavaScript hoạt động:</p>
+                <div class="actions">
+                    <button id="btn-click" class="btn btn-primary">Bấm vào đây để chào!</button>
+                    <button id="btn-time" class="btn btn-secondary">Xem thời gian hiện tại</button>
+                </div>
+                <div id="output-box" class="output-box">Đang sẵn sàng nhận tương tác...</div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2026 - Nguyễn Minh Kiệt (1822040378). Bài tập DevOps GitHub Actions.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
