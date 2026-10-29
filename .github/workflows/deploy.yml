@@ -1,0 +1,68 @@
+name: Deploy Website to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check required files (index.html, style.css, script.js)
+        run: |
+          echo "=== KIEM TRA CAC FILE BAT BUOC ==="
+          for file in index.html style.css script.js; do
+            if [ -f "$file" ]; then
+              echo "[PASS] Tim thay file: $file"
+            else
+              echo "[FAIL] Thieu file bat buoc: $file"
+              exit 1
+            fi
+          done
+          echo "Tat ca cac file bat buoc deu ton tai!"
+
+      - name: Check index.html has <title> tag
+        run: |
+          echo "=== KIEM TRA THE <title> TRONG index.html ==="
+          if grep -qi "<title>.*</title>" index.html; then
+            echo "[PASS] index.html co chua the <title> hop le!"
+          else
+            echo "[FAIL] Loi: index.html thieu the <title>!"
+            exit 1
+          fi
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: check
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
